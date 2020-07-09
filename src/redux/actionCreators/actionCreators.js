@@ -23,3 +23,7 @@ export const addNewTaskAC = () => {
         })
     }
 }
+
+export const removeSelfAC = () => {
+    
+}

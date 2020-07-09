@@ -1,6 +1,6 @@
 import React from "react";
 import c from "./TasksList.module.css"
-import TaskComponent from "./TaskComponent/TaskComponent";
+import TaskComponent from "../../containers/TaskComponentContainer";
 
 const TaskList = ({tasks}) => {
     console.log(tasks)

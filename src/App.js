@@ -1,6 +1,6 @@
 import React from 'react';
 import c from "./App.module.css";
-import TaskList from "./containers/TaskCompontentContainer";
+import TaskList from "./containers/TaskListContainer";
 import store from './redux/redux-store/redux-store';
 import { Provider } from 'react-redux'
 
