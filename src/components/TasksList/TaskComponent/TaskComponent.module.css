@@ -1,6 +1,6 @@
 .container{
     width: 200px;
-    height: 230px;
+    min-height: 230px;
     border-radius: 20px;
     background-color: white;
     padding: 20px;
@@ -15,5 +15,17 @@
 }
 
 .description{
+    min-height: 120px;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+}
+
+.description p{
+    margin: 0;
+}
+
+.footer{
 
 }
