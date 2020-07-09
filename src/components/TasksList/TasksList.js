@@ -1,7 +1,7 @@
 import React from "react";
 import c from "./TasksList.module.css"
 import TaskComponent from "./TaskComponent/TaskComponent";
-
+import NewTaskComponent from './NewTaskComponent/NewTaskComponent'
 
 const TaskList = ({tasks, removeSelf, isDoneToggle}) => {
     return (
@@ -12,6 +12,7 @@ const TaskList = ({tasks, removeSelf, isDoneToggle}) => {
                                task={item}
                                key={item.id+index}/>
             )}
+            <NewTaskComponent />
         </div>
     )
 };

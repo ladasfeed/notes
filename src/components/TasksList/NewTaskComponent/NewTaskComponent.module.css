@@ -1,0 +1,40 @@
+.container{
+    width: 250px;
+    min-height: 230px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+}
+
+.container_highlighted{
+    background-color: #feffcb;
+}
+
+.title{
+    width: 100%;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 19px;
+    border-bottom: 2px solid gray;
+}
+
+.description{
+    min-height: 120px;
+    margin: 15px 0 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #e5e5e5;
+}
+
+.description p{
+    margin: 0;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls button:first-child{
+    margin-right: 10px;
+}

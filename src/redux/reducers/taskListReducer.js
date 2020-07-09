@@ -64,9 +64,10 @@ const taskListReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_NEW_TASK: {
+            
             return {
                 ...state,
-                tasks: state.tasks.concat([action.payload])
+                tasks: state.tasks.concat([action.newTask])
             }
         }
 
@@ -78,27 +79,6 @@ const taskListReducer = (state = initialState, action) => {
             }
         }
 
-        case CHANGE_NEW_TITLE: {
-            return {
-                ...state,
-                newTitle: action.payload
-            }
-        }
-
-        case CHANGE_NEW_DESCR: {
-            return {
-                ...state,
-                newDescription: action.payload
-            }
-        }
-
-        case CHANGE_NEW_IS_IMPORTANT: {
-            return {
-                ...state,
-                newIsDone: action.payload
-            }
-        }
-
         case IS_DONE_TOGGLE: {
             console.log(action.payload)
             return {
@@ -106,6 +86,7 @@ const taskListReducer = (state = initialState, action) => {
                 tasks: action.payload
             }
         }
+
 
         default:
             return state

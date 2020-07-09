@@ -3,25 +3,19 @@ import {
     IS_DONE_TOGGLE
 } from '../types/types'
 
-export const addNewTaskAC = () => {
+export const addNewTaskAC = (value) => {
     return (dispatch, getState) => {
-        const {
-            newTitle,
-            newDescription,
-            newIsDone,
-            newIsImportant
-        } = getState().taskListReducer;
         const newDate = new Date();
 
         dispatch({
             type: ADD_NEW_TASK,
             newTask: {
-                newTitle,
-                newDescription,
-                newIsDone,
-                newIsImportant,
-                newDate: newDate.toString(),
-                id: newDate.now()
+                title: value.newTitle,
+                description: value.newDescription,
+                isDone: false,
+                isImportant: value.newIsImportant,
+                date: newDate.toString(),
+                id: newDate.toLocaleString()
             }
         })
     }
