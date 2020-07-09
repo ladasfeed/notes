@@ -14,7 +14,32 @@ const initialState = {
             date: '01.01.2020',
             description: 'descr',
             isImportant: false,
-            isDone: false
+            isDone: false,
+            id: '123'
+        },
+        {
+            title: 'test1',
+            date: '01.01.2020',
+            description: 'descr',
+            isImportant: false,
+            isDone: false,
+            id: '123'
+        },
+        {
+            title: 'test1',
+            date: '01.01.2020',
+            description: 'descr',
+            isImportant: false,
+            isDone: false,
+            id: '123'
+        },
+        {
+            title: 'test1',
+            date: '01.01.2020',
+            description: 'descr',
+            isImportant: false,
+            isDone: false,
+            id: '123'
         }
     ],
    
@@ -26,20 +51,20 @@ const initialState = {
 }
 
 
-const taskListReducer = (state, action) => {
+const taskListReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_NEW_TASK: {
             return {
                 ...state,
-                tasks: tasks.concat([action.payload])
+                tasks: state.tasks.concat([action.payload])
             }
         }
 
         case REMOVE_TASK: {
             return {
                 ...state,
-                tasks: tasks.filter((item, index) => action.payload!=index)
+                tasks: state.tasks.filter((item, index) => action.payload!=index)
             }
         }
 

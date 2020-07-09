@@ -2,15 +2,13 @@ import React from "react";
 import c from "./TasksList.module.css"
 import TaskComponent from "./TaskComponent/TaskComponent";
 
-const TaskList = (props) => {
-
+const TaskList = ({tasks}) => {
+    console.log(tasks)
     return (
         <div className={c.container}>
-            <TaskComponent/>
-            <TaskComponent/>
-            <TaskComponent/>
-            <TaskComponent/>
-            <TaskComponent/>
+            {tasks.map((item, index)=>
+                <TaskComponent task={item} key={item.id+index}/>
+            )}
         </div>
     )
 };

@@ -17,7 +17,8 @@ export const addNewTaskAC = () => {
                 newDescription,
                 newIsDone,
                 newIsImportant,
-                newDate: newDate.toString()
+                newDate: newDate.toString(),
+                id: newDate.now()
             }
         })
     }
