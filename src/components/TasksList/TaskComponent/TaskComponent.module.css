@@ -1,0 +1,19 @@
+.container{
+    width: 200px;
+    height: 230px;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+}
+
+.title{
+    width: 100%;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 19px;
+    border-bottom: 2px solid gray;
+}
+
+.description{
+
+}
