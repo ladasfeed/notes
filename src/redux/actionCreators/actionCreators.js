@@ -1,4 +1,7 @@
-import {ADD_NEW_TASK} from '../types/types'
+import {
+    ADD_NEW_TASK,
+    IS_DONE_TOGGLE
+} from '../types/types'
 
 export const addNewTaskAC = () => {
     return (dispatch, getState) => {
@@ -24,6 +27,19 @@ export const addNewTaskAC = () => {
     }
 }
 
-export const removeSelfAC = () => {
-    
+export const isDoneToggle = (id) => {
+    return (dispatch, getState) => {
+        let tasks = getState().taskListReducer.tasks;
+        
+        tasks = tasks.map(item=>{
+            if (item.id == id)
+                item.isDone = !item.isDone;
+            return item
+        })
+        console.log(tasks)
+        dispatch ({
+            type: IS_DONE_TOGGLE,
+            payload: tasks
+        })
+    }
 }

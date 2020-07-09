@@ -4,6 +4,8 @@ import TaskList from "./containers/TaskListContainer";
 import store from './redux/redux-store/redux-store';
 import { Provider } from 'react-redux'
 
+window.store = store
+
 function App() {
   return (
     <Provider store = {store}>

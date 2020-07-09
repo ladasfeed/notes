@@ -3,7 +3,6 @@ import c from "./TasksList.module.css"
 import TaskComponent from "../../containers/TaskComponentContainer";
 
 const TaskList = ({tasks}) => {
-    console.log(tasks)
     return (
         <div className={c.container}>
             {tasks.map((item, index)=>
