@@ -1,12 +1,13 @@
 import React from "react";
 import c from "./TaskComponent.module.css";
 
-const TaskComponent = ({title}) => {
-
+const TaskComponent = ({task}) => {
+   
+    const {title, description, isDone, isImportant} = task;
     return (
         <div className={c.container}>
-            <div className={c.title}>Title text</div>
-            <div className={c.description}>Description</div>
+            <div className={c.title}>{title}</div>
+            <div className={c.description}>{description}</div>
         </div>
     )
 };
