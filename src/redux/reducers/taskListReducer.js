@@ -10,27 +10,27 @@ import {
 const initialState = {
     tasks: [
         {
-            title: 'test1',
+            title: 'Title test',
             date: '01.01.2020',
-            description: 'descr',
+            description: 'Lorem ipsum. Yo Yo Yo. Write here your description.',
             isImportant: false,
+            isDone: true,
+            id: '123'
+        },
+        {
+            title: 'This is title test too',
+            date: '01.01.2020',
+            description: 'Description. This is description. Description. Description. This is description.',
+            isImportant: true,
             isDone: false,
             id: '123'
         },
         {
-            title: 'test1',
+            title: 'Title title title...',
             date: '01.01.2020',
-            description: 'descr',
-            isImportant: false,
-            isDone: false,
-            id: '123'
-        },
-        {
-            title: 'test1',
-            date: '01.01.2020',
-            description: 'descr',
-            isImportant: false,
-            isDone: false,
+            description: 'Some text. Some text. Some text. Some text. Some text.',
+            isImportant: true,
+            isDone: true,
             id: '123'
         },
         {

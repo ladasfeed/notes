@@ -1,12 +1,22 @@
 import React from "react";
 import c from "./TaskComponent.module.css";
+import cn from "classnames"
 
 const TaskComponent = ({task}) => {
     const {title, description, isDone, isImportant} = task;
     return (
-        <div className={c.container}>
+        <div className={cn(c.container, {[c.container_highlighted]: isImportant})}>
             <div className={c.title}>{title}</div>
-            <div className={c.description}>{description}</div>
+            <div className={c.description}>
+                <p>{description}</p>
+            </div>
+            <div className={c.footer}>
+                <label><input checked={isDone} type="checkbox"/> Done</label>
+                <div className={c.controls}>
+                    <button>Edit</button>
+                    <button>Remove</button>
+                </div>
+            </div>
         </div>
     )
 };

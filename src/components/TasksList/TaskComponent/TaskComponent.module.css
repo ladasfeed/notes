@@ -6,6 +6,10 @@
     padding: 20px;
 }
 
+.container_highlighted{
+    background-color: #feffcb;
+}
+
 .title{
     width: 100%;
     padding-bottom: 5px;
@@ -16,10 +20,10 @@
 
 .description{
     min-height: 120px;
-    margin-top: 15px;
+    margin: 15px 0 15px;
     padding: 15px;
     border-radius: 15px;
-    background-color: #cdcdcd;
+    background-color: #e5e5e5;
 }
 
 .description p{
@@ -27,5 +31,10 @@
 }
 
 .footer{
+    display: flex;
+    justify-content: space-between;
+}
 
+.controls button:first-child{
+    margin-right: 10px;
 }
