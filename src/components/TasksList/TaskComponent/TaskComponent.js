@@ -20,7 +20,7 @@ const TaskComponent = ({task, removeSelf}) => {
                 <label><input checked={isDone} type="checkbox"/> Done</label>
                 <div className={c.controls}>
                     <button>Edit</button>
-                    <button>Remove</button>
+                    <button onClick={destroy}>Remove</button>
                 </div>
             </div>
         </div>

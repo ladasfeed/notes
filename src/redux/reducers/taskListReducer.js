@@ -19,6 +19,9 @@ const initialState = {
         },
         {
             title: 'This is title test too',
+            date: '01.01.2020',
+            description: 'Lorem ipsum. Yo Yo Yo. Write here your description.',
+            isImportant: false,
             isDone: false,
             id: '1234'
         },
@@ -37,7 +40,15 @@ const initialState = {
             isImportant: false,
             isDone: false,
             id: '1232'
-        }
+        },
+        {
+            title: 'test2',
+            date: '01.01.2020',
+            description: 'Description. This is description. Description. Description. This is description.',
+            isImportant: true,
+            isDone: false,
+            id: '1236'
+        },
     ],
    
     newTitle: '',
