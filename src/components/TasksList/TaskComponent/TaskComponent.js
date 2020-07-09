@@ -2,8 +2,14 @@ import React from "react";
 import c from "./TaskComponent.module.css";
 import cn from "classnames"
 
-const TaskComponent = ({task}) => {
-    const {title, description, isDone, isImportant} = task;
+const TaskComponent = ({task, removeSelf}) => {
+    
+    const {title, description, isDone, isImportant, id} = task;
+
+    function destroy() {
+        removeSelf(id)
+    }
+
     return (
         <div className={cn(c.container, {[c.container_highlighted]: isImportant})}>
             <div className={c.title}>{title}</div>

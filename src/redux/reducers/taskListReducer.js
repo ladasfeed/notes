@@ -2,7 +2,7 @@ import {
     ADD_NEW_TASK,
     CHANGE_NEW_TITLE,
     CHANGE_NEW_DESCR,
-    CHANGE_NEW_IS_DONE,
+    CHANGE_NEW_IS_IMPORTANT,
     REMOVE_TASK
 } from '../types/types'
 
@@ -19,27 +19,24 @@ const initialState = {
         },
         {
             title: 'This is title test too',
+            isDone: false,
+            id: '1234'
+        },
+        {
+            title: 'test2',
             date: '01.01.2020',
             description: 'Description. This is description. Description. Description. This is description.',
             isImportant: true,
             isDone: false,
-            id: '123'
+            id: '1236'
         },
         {
-            title: 'Title title title...',
-            date: '01.01.2020',
-            description: 'Some text. Some text. Some text. Some text. Some text.',
-            isImportant: true,
-            isDone: true,
-            id: '123'
-        },
-        {
-            title: 'test1',
+            title: 'test4',
             date: '01.01.2020',
             description: 'descr',
             isImportant: false,
             isDone: false,
-            id: '123'
+            id: '1232'
         }
     ],
    
@@ -62,9 +59,10 @@ const taskListReducer = (state = initialState, action) => {
         }
 
         case REMOVE_TASK: {
+            console.log(action.payload)
             return {
                 ...state,
-                tasks: state.tasks.filter((item, index) => action.payload!=index)
+                tasks: state.tasks.filter((item) => action.payload!=item.id)
             }
         }
 
@@ -82,7 +80,7 @@ const taskListReducer = (state = initialState, action) => {
             }
         }
 
-        case CHANGE_NEW_IS_DONE: {
+        case CHANGE_NEW_IS_IMPORTANT: {
             return {
                 ...state,
                 newIsDone: action.payload
