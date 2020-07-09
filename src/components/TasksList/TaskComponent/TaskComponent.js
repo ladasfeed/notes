@@ -2,18 +2,9 @@ import React from "react";
 import c from "./TaskComponent.module.css";
 import cn from "classnames"
 
-const TaskComponent = ({task, removeSelf, isDoneToggle}) => {
-    console.log(task)
+const TaskComponent = ({task, destroy, doneToggle}) => {
     const {title, description, isDone, isImportant, id} = task;
 
-    function destroy() {
-        removeSelf(id)
-    }
-
-    function doneToggle() {
-        isDoneToggle(id)
-    }
-  
     return (
         <div className={cn(c.container, {[c.container_highlighted]: isImportant})}>
             <div className={c.title}>{title}</div>

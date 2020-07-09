@@ -32,7 +32,7 @@ export const isDoneToggle = (id) => {
         let tasks = getState().taskListReducer.tasks;
         
         tasks = tasks.map(item=>{
-            if (item.id == id)
+            if (item.id === id)
                 item.isDone = !item.isDone;
             return item
         })
