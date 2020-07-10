@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import AppContainer from "./containers/AppContainer";
 import {Provider} from "react-redux";
 import store from "./redux/redux-store/redux-store";
+import {localStorageAPI} from "./api/api";
 
 // const testObj =  {
 //     tasks: [
@@ -25,32 +26,15 @@ import store from "./redux/redux-store/redux-store";
 //             isDone: false,
 //             id: '1234'
 //         },
-//         {
-//             title: 'test2',
-//             date: '01.01.2020',
-//             description: 'Description. This is description. Description. Description. This is description.',
-//             isImportant: true,
-//             isDone: false,
-//             id: '1236'
-//         },
-//         {
-//             title: 'test4',
-//             date: '01.01.2020',
-//             description: 'descr',
-//             isImportant: false,
-//             isDone: false,
-//             id: '1232'
-//         },
-//         {
-//             title: 'test2',
-//             date: '01.01.2020',
-//             description: 'Description. This is description. Description. Description. This is description.',
-//             isImportant: true,
-//             isDone: false,
-//             id: '1236'
-//         },
 //     ]
 // };
+
+
+store.subscribe(() => {
+    if (store.getState().appReducer.initialized){
+         localStorageAPI.pushToStorage(store.getState())
+    }
+});
 
 ReactDOM.render(
     <React.StrictMode>

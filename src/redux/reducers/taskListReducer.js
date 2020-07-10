@@ -1,6 +1,6 @@
 import {
     REMOVE_TASK,
-    MODIFY_TASKS
+    MODIFY_TASKS, ADD_TASK, IS_DONE_TOGGLE, CHANGE_TASK, LOAD_SAVED_DATA
 } from '../types/types'
 
 const initialState = {
@@ -23,12 +23,30 @@ const initialState = {
 
 const taskListReducer = (state = initialState, action) => {
     switch (action.type) {
+        case ADD_TASK: {
+            return {...state, tasks: [...state.tasks, action.task]}
+        }
 
-        case MODIFY_TASKS: {
+        case IS_DONE_TOGGLE: {
             return {
                 ...state,
-                tasks: action.payload
+                tasks: state.tasks.map(item => item.id === action.id ? {...item, isDone: !item.isDone} : item)
             }
+        }
+
+        case CHANGE_TASK: {
+            return {
+                ...state,
+                tasks: state.tasks.map(item => item.id === action.id ? {...item, ...action.payload} : item)
+            }
+        }
+
+        case REMOVE_TASK: {
+            return {...state, tasks: state.tasks.filter(item => item.id !== action.id)}
+        }
+
+        case LOAD_SAVED_DATA: {
+            return {...state, tasks: action.payload.tasks}
         }
 
         default:
