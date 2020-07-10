@@ -8,13 +8,11 @@ import { Provider, connect } from 'react-redux'
 window.store = store
 
 function App(props) {
-  const root = useRef(null);
-
-
   console.log(props)
 
   useEffect(() => {
       props.initializeApp()
+      
   }, []);
 
 
@@ -22,7 +20,7 @@ function App(props) {
       <div className={c.container}>
           {!props.initialized
               ? <div>Loading...</div>
-              : <TaskList ref={root}/>
+              : <TaskList/>
           }
       </div>
   );
