@@ -14,7 +14,7 @@ const TaskComponent = ({task, destroy, doneToggle, editTask}) => {
             <div className={c.footer}>
                 <label><input checked={isDone} type="checkbox" onChange={doneToggle}/> Done</label>
                 <div className={c.controls}>
-                    <button onClick={()=>editTask(task)}>Edit</button>
+                    <button onClick={editTask}>Edit</button>
                     <button onClick={destroy}>Remove</button>
                 </div>
             </div>

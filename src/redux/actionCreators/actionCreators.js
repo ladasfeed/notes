@@ -1,8 +1,9 @@
 import {
     ADD_NEW_TASK,
     IS_DONE_TOGGLE,
-    CHANGE_TASK
+    CHANGE_TASK, APPLY_SAVED_DATA, SET_INITIALIZED
 } from '../types/types'
+import {localStorageAPI} from "../../api/api";
 
 export const addNewTaskAC = (value) => {
     return (dispatch, getState) => {
@@ -56,3 +57,13 @@ export const changeTask = (payload, id) => {
         })
     }
 }
+
+export const initializeApp = () => dispatch => {
+    const userData = localStorageAPI.getUserData();
+
+    userData && dispatch({type: APPLY_SAVED_DATA, payload: userData});
+    dispatch({type: SET_INITIALIZED, payload: true});
+
+
+    console.log("INITIALIZE APP", JSON.parse(userData))
+};
