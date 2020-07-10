@@ -1,0 +1,19 @@
+.EditModalWrapper {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.EditModal {
+    padding: 30px;
+    background-color: salmon;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}

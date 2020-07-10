@@ -1,8 +1,8 @@
 import React from "react";
 import c from "./TaskComponent.module.css";
-import cn from "classnames"
+import cn from "classnames";
 
-const TaskComponent = ({task, destroy, doneToggle}) => {
+const TaskComponent = ({task, destroy, doneToggle, editTask}) => {
     const {title, description, isDone, isImportant, id} = task;
 
     return (
@@ -14,7 +14,7 @@ const TaskComponent = ({task, destroy, doneToggle}) => {
             <div className={c.footer}>
                 <label><input checked={isDone} type="checkbox" onChange={doneToggle}/> Done</label>
                 <div className={c.controls}>
-                    <button>Edit</button>
+                    <button onClick={()=>editTask(task)}>Edit</button>
                     <button onClick={destroy}>Remove</button>
                 </div>
             </div>

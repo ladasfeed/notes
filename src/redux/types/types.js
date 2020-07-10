@@ -4,3 +4,4 @@ export const CHANGE_NEW_DESCR = 'CHANGE_NEW_DESCR';
 export const CHANGE_NEW_IS_IMPORTANT = 'CHANGE_NEW_IS_DONE';
 export const REMOVE_TASK = 'REMOVE_TASK';
 export const IS_DONE_TOGGLE = 'IS_DONE_TOGGLE';
+export const CHANGE_TASK = 'CHANGE_TASK';

@@ -1,10 +1,8 @@
 import {
     ADD_NEW_TASK,
-    CHANGE_NEW_TITLE,
-    CHANGE_NEW_DESCR,
-    CHANGE_NEW_IS_IMPORTANT,
     REMOVE_TASK,
-    IS_DONE_TOGGLE
+    IS_DONE_TOGGLE,
+    CHANGE_TASK
 } from '../types/types'
 
 
@@ -81,6 +79,13 @@ const taskListReducer = (state = initialState, action) => {
 
         case IS_DONE_TOGGLE: {
             console.log(action.payload)
+            return {
+                ...state,
+                tasks: action.payload
+            }
+        }
+
+        case CHANGE_TASK: {
             return {
                 ...state,
                 tasks: action.payload
