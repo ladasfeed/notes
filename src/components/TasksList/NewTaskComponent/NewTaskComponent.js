@@ -3,7 +3,7 @@ import c from "./NewTaskComponent.module.css";
 import { Field, reduxForm, reset } from 'redux-form';
 import { useDispatch } from 'react-redux'
 import { addNewTaskAC } from '../../../redux/actionCreators/actionCreators'
-
+const vizual = 'card';
 
 
 
@@ -18,20 +18,21 @@ let NewTaskComponent = ({handleSubmit}) => {
     }
 
     return (
-        <div className={c.container}>
+        <div className={c.container} style={vizual==='row' ? {width: '100%'} : {width: '250px'}}>
             <form onSubmit={handleSubmit(addNew)}>
                 <div className={c.title}>
-                    <Field  placeholder="newTitle" name="newTitle" component="input" type="text" />
+                    <Field className={c.titleInput}  placeholder="newTitle" name="newTitle" component="input" type="text" />
                 </div>
                 
                 <div className={c.description}>
-                    <Field placeholder="newDescription" name="newDescription" component="input" type="text" />
+                    <Field className={c.descriptionInput} placeholder="newDescription" name="newDescription" component="textarea" type="text" />
                 </div>
 
-                <div className={c.footer}>
-                    <Field placeholder="newIsImportant" name="newIsImportant" component="input" type="checkbox" />
+                <div className={c.isNew}>
+                    Is Your Task Important
+                    <Field className={c.isNewInput} placeholder="newIsImportant" name="newIsImportant" component="input" type="checkbox" />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit">Add New Task</button>
             </form>
         </div>
     )

@@ -10,7 +10,8 @@ const TaskListContainer = (props) => {
         <>
             <TaskList tasks={props.tasks}
                       removeSelf={props.removeSelf}
-                      isDoneToggle={props.isDoneToggle}/>
+                      isDoneToggle={props.isDoneToggle}
+                      />
         </> 
     )
 };
@@ -18,6 +19,7 @@ const TaskListContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         tasks: state.taskListReducer.tasks
+        //getVizual
     }
 }
 

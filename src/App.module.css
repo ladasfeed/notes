@@ -1,3 +1,5 @@
 .container{
     padding: 50px 100px;
+    background-color: #6805F2;
+    min-height: 100vh;
 }

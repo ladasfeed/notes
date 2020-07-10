@@ -1,21 +1,29 @@
 import React, {useRef} from 'react';
 import c from "./App.module.css";
 import TaskList from "./containers/TaskListContainer";
+import Settings from './components/Settings/Settings'
 import store from './redux/redux-store/redux-store';
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 
 window.store = store
 
 function App() {
-  const root = useRef(null);
-
   return (
     <Provider store = {store}>
       <div className={c.container}>
-        <TaskList ref={root}/>
+        <Settings />
+        <TaskList/>
       </div>
     </Provider>
   );
 }
 
-export default App;
+
+// export default connect(
+//   (state)=>{
+//     theme: state.settingsReducer.theme,
+//     vizualization: state.settingsReducer.vizualization
+//   }
+// )(App);
+
+export default App

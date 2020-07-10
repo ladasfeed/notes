@@ -4,7 +4,7 @@ import TaskComponent from "./TaskComponent/TaskComponent";
 import NewTaskComponent from './NewTaskComponent/NewTaskComponent';
 import EditComponent from './EditComponent/EditComponent'
 
-const TaskList = ({tasks, removeSelf, isDoneToggle}) => {
+const TaskList = ({tasks, removeSelf, isDoneToggle, vizual}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editingTask, setEditingTask] = useState('');
 
@@ -17,7 +17,7 @@ const TaskList = ({tasks, removeSelf, isDoneToggle}) => {
         setIsEditing(false)
     }
 
-    console.log(isEditing, '  111   ', editingTask)
+   
 
     return (
         <div className={c.container}>
@@ -29,7 +29,9 @@ const TaskList = ({tasks, removeSelf, isDoneToggle}) => {
                                editTask={editTask}
                                />
             )}
+
             <NewTaskComponent />
+
             {isEditing ? <EditComponent 
                             initialValues={{
                                 title: editingTask.title,
@@ -40,7 +42,6 @@ const TaskList = ({tasks, removeSelf, isDoneToggle}) => {
                             editingTask={editingTask}
                         />
                         : ''}
-            
         </div>
     )
 };

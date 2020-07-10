@@ -4,6 +4,7 @@
     border-radius: 20px;
     background-color: white;
     padding: 20px;
+    transition: .4s;
 }
 
 .container_highlighted{
@@ -12,7 +13,7 @@
 
 .title{
     width: 100%;
-    padding-bottom: 5px;
+    padding: 5px;
     font-weight: bold;
     font-size: 19px;
     border-bottom: 2px solid gray;
@@ -33,6 +34,15 @@
 .footer{
     display: flex;
     justify-content: space-between;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+.controls img{
+    max-width: 32px;
 }
 
 .controls button:first-child{

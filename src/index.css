@@ -3,10 +3,14 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #FE4040;
-  margin: 0;
-  
+
+
+@font-face {
+  font-family: "Monserat";
+  src: url('./fonts/montserrat.woff') format("woff");
 }
 
-
+body {
+  margin: 0;
+  font-family: 'Monserat';
+}
