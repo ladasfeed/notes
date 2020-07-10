@@ -1,24 +1,28 @@
 import {
-    ADD_NEW_TASK,
-    IS_DONE_TOGGLE,
-    CHANGE_TASK, APPLY_SAVED_DATA, SET_INITIALIZED
+    SET_INITIALIZED,
+    MODIFY_TASKS
 } from '../types/types'
 import {localStorageAPI} from "../../api/api";
 
 export const addNewTaskAC = (value) => {
     return (dispatch, getState) => {
         const newDate = new Date();
+        let tasks = getState().taskListReducer.tasks;
+        
+        tasks.push({
+            title: value.newTitle,
+            description: value.newDescription,
+            isDone: false,
+            isImportant: value.newIsImportant,
+            date: newDate.toString(),
+            id: newDate.toLocaleString()
+        })
 
+        tasks = Object.assign([], tasks)
+       
         dispatch({
-            type: ADD_NEW_TASK,
-            newTask: {
-                title: value.newTitle,
-                description: value.newDescription,
-                isDone: false,
-                isImportant: value.newIsImportant,
-                date: newDate.toString(),
-                id: newDate.toLocaleString()
-            }
+            type: MODIFY_TASKS,
+            payload: tasks 
         })
     }
 }
@@ -26,7 +30,7 @@ export const addNewTaskAC = (value) => {
 export const isDoneToggle = (id) => {
     return (dispatch, getState) => {
         let tasks = getState().taskListReducer.tasks;
-        
+       
         tasks = tasks.map(item=>{
             if (item.id === id)
                 item.isDone = !item.isDone;
@@ -34,7 +38,7 @@ export const isDoneToggle = (id) => {
         })
         console.log(tasks)
         dispatch ({
-            type: IS_DONE_TOGGLE,
+            type: MODIFY_TASKS,
             payload: tasks
         })
     }
@@ -46,21 +50,25 @@ export const changeTask = (payload, id) => {
         let tasks = getState().taskListReducer.tasks;
         
         tasks = tasks.map(item=>{
-            if (item.id === id)
-                item = payload
+            if (item.id === id) {
+                item.description = payload.description;
+                item.isImportant = payload.isImportant;
+                item.title = payload.title;
+            }
+                
             return item
         })
-        console.log(tasks)
+        
         dispatch ({
-            type: CHANGE_TASK,
+            type: MODIFY_TASKS,
             payload: tasks
         })
     }
-}
+}   
 
 export const initializeApp = () => dispatch => {
     const userData = localStorageAPI.getUserData();
-
-    userData && dispatch({type: APPLY_SAVED_DATA, payload: userData});
+    
+    userData && dispatch({type: MODIFY_TASKS, payload: userData.tasks});
     dispatch({type: SET_INITIALIZED, payload: true});
 };

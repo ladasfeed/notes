@@ -1,8 +1,6 @@
 import {
-    ADD_NEW_TASK,
     REMOVE_TASK,
-    IS_DONE_TOGGLE,
-    CHANGE_TASK, APPLY_SAVED_DATA
+    MODIFY_TASKS
 } from '../types/types'
 
 
@@ -63,11 +61,10 @@ const initialState = {
 const taskListReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case ADD_NEW_TASK: {
-            
+        case MODIFY_TASKS: {
             return {
                 ...state,
-                tasks: state.tasks.concat([action.newTask])
+                tasks: action.payload
             }
         }
 
@@ -76,29 +73,6 @@ const taskListReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: state.tasks.filter((item) => action.payload!=item.id)
-            }
-        }
-
-        case IS_DONE_TOGGLE: {
-            console.log(action.payload)
-            return {
-                ...state,
-                tasks: action.payload
-            }
-        }
-
-        case CHANGE_TASK: {
-            return {
-                ...state,
-                tasks: action.payload
-            }
-        }
-
-        case APPLY_SAVED_DATA: {
-            console.log(action.payload)
-            return {
-                ...state,
-                tasks: action.payload.tasks
             }
         }
 
