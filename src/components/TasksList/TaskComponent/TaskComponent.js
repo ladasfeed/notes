@@ -23,11 +23,8 @@ const TaskComponent = ({task, destroy, doneToggle, editTask}) => {
             <div className={c.footer}>
                 <label><input checked={isDone} type="checkbox" onChange={doneToggle}/> Done</label>
                 <div className={c.controls}>
-                    <img src={require('../../../imgs/edit-button.png')} onClick={()=>editTask(task)}></img>
+                    <img src={require('../../../imgs/edit-button.png')} onClick={editTask}></img>
                     <img src={require('../../../imgs/delete-button.png')} onClick={deleteSelf}></img>
-                    
-                    <button onClick={editTask}>Edit</button>
-                    <button onClick={destroy}>Remove</button>
                 </div>
             </div>
         </div>

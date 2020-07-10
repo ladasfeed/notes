@@ -63,7 +63,4 @@ export const initializeApp = () => dispatch => {
 
     userData && dispatch({type: APPLY_SAVED_DATA, payload: userData});
     dispatch({type: SET_INITIALIZED, payload: true});
-
-
-    console.log("INITIALIZE APP", JSON.parse(userData))
 };
