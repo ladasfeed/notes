@@ -26,6 +26,8 @@ const TaskComponent = ({task, destroy, doneToggle, editTask}) => {
                     <img src={require('../../../imgs/edit-button.png')} onClick={()=>editTask(task)}></img>
                     <img src={require('../../../imgs/delete-button.png')} onClick={deleteSelf}></img>
                     
+                    <button onClick={editTask}>Edit</button>
+                    <button onClick={destroy}>Remove</button>
                 </div>
             </div>
         </div>

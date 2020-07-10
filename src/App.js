@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import c from "./App.module.css";
 import TaskList from "./containers/TaskListContainer";
 import Settings from './components/Settings/Settings'
@@ -7,14 +7,24 @@ import { Provider, connect } from 'react-redux'
 
 window.store = store
 
-function App() {
+function App(props) {
+  const root = useRef(null);
+
+
+  console.log(props)
+
+  useEffect(() => {
+      props.initializeApp()
+  }, []);
+
+
   return (
-    <Provider store = {store}>
       <div className={c.container}>
-        <Settings />
-        <TaskList/>
+          {!props.initialized
+              ? <div>Loading...</div>
+              : <TaskList ref={root}/>
+          }
       </div>
-    </Provider>
   );
 }
 

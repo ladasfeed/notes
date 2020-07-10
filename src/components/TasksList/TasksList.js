@@ -26,22 +26,22 @@ const TaskList = ({tasks, removeSelf, isDoneToggle, vizual}) => {
                                doneToggle={() => isDoneToggle(item.id)}
                                task={item}
                                key={item.id+index}
-                               editTask={editTask}
+                               editTask={() => editTask(item)}
                                />
             )}
 
             <NewTaskComponent />
-
-            {isEditing ? <EditComponent 
-                            initialValues={{
-                                title: editingTask.title,
-                                description: editingTask.description,
-                                isImportant: editingTask.isImportant
-                            }} 
-                            stopEditing={stopEditing} 
-                            editingTask={editingTask}
-                        />
-                        : ''}
+            {isEditing && <EditComponent
+                initialValues={{
+                    title: editingTask.title,
+                    description: editingTask.description,
+                    isImportant: editingTask.isImportant
+                }}
+                stopEditing={stopEditing}
+                editingTask={editingTask}
+            />
+            }
+            
         </div>
     )
 };
