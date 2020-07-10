@@ -1,8 +1,7 @@
 import React from "react";
 import TaskList from '../components/TasksList/TasksList';
 import { connect } from 'react-redux'
-import {REMOVE_TASK} from "../redux/types/types";
-import {isDoneToggle} from "../redux/actionCreators/actionCreators";
+import {isDoneToggle, removeTask} from "../redux/actionCreators/actionCreators";
 
 const TaskListContainer = (props) => {
     
@@ -25,7 +24,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeSelf: (id) => dispatch({type: REMOVE_TASK, payload: id}),
+        removeSelf: (id) => dispatch(removeTask(id)),
         isDoneToggle: (id) => dispatch(isDoneToggle(id))
     }
 }

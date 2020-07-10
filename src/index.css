@@ -1,9 +1,6 @@
-
 * {
   box-sizing: border-box;
 }
-
-
 
 @font-face {
   font-family: "Monserat";
@@ -13,4 +10,8 @@
 body {
   margin: 0;
   font-family: 'Monserat';
+}
+
+button {
+  cursor: pointer;
 }

@@ -4,22 +4,20 @@ import TaskList from "./containers/TaskListContainer";
 import Settings from './components/Settings/Settings'
 import store from './redux/redux-store/redux-store';
 import { Provider, connect } from 'react-redux'
+import Preloader from "./components/common/Preloader/Preloader";
 
 window.store = store
 
 function App(props) {
-  console.log(props)
-
   useEffect(() => {
       props.initializeApp()
       
   }, []);
 
-
   return (
       <div className={c.container}>
           {!props.initialized
-              ? <div>Loading...</div>
+              ? <Preloader/>
               : <TaskList/>
           }
       </div>

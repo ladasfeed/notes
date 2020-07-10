@@ -41,6 +41,10 @@
     align-items: center;
 }
 
+.controls input, label, img{
+    cursor: pointer;
+}
+
 .controls img{
     max-width: 32px;
 }
