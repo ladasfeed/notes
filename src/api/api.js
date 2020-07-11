@@ -4,10 +4,12 @@ export const localStorageAPI = {
         return JSON.parse(localStorage.getItem("savedData"))
     },
 
-    pushToStorage(state) {
+    pushToStorage(tasks, settings) {
         const data = {
-            tasks: state.taskListReducer.tasks
+            tasks,
+            settings
         };
+
 
         localStorage.setItem("savedData", JSON.stringify(data))
     }

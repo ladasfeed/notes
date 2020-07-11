@@ -4,7 +4,7 @@ import TaskComponent from "./TaskComponent/TaskComponent";
 import NewTaskComponent from './NewTaskComponent/NewTaskComponent';
 import EditComponent from './EditComponent/EditComponent'
 
-const TaskList = ({tasks, removeSelf, isDoneToggle, vizual}) => {
+const TaskList = ({tasks, removeSelf, isDoneToggle, view, theme}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editingTask, setEditingTask] = useState('');
 
@@ -27,10 +27,12 @@ const TaskList = ({tasks, removeSelf, isDoneToggle, vizual}) => {
                                task={item}
                                key={item.id+index}
                                editTask={() => editTask(item)}
+                               bgColor={theme.cardColor}
+                               view={view}
                                />
             )}
 
-            <NewTaskComponent />
+            <NewTaskComponent bgColor={theme.newCardColor} view={view}/>
             {isEditing && <EditComponent
                 initialValues={{
                     title: editingTask.title,

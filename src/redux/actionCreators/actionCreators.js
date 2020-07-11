@@ -10,25 +10,30 @@ export const changeTask = (payload, id) => ({type: CHANGE_TASK, payload, id});
 export const removeTask = (id) => ({type: REMOVE_TASK, id});
 
 export const addNewTaskAC = (value) => {
-    return (dispatch) => {
-        const newDate = new Date();
+    const newDate = new Date();
 
-        const task = {
-            title: value.newTitle,
-            description: value.newDescription,
-            isDone: false,
-            isImportant: value.newIsImportant,
-            date: newDate.toString(),
-            id: newDate.toLocaleString()
-        };
+    const task = {
+        title: value.newTitle,
+        description: value.newDescription,
+        isDone: false,
+        isImportant: value.newIsImportant,
+        date: newDate.toString(),
+        id: newDate.toLocaleString()
+    };
 
-        dispatch(addTask(task));
+    return {
+       type: ADD_TASK,
+       task: task
     }
 };
 
 export const initializeApp = () => dispatch => {
     const userData = localStorageAPI.getUserData();
     
+    
+
     userData && dispatch({type: LOAD_SAVED_DATA, payload: userData});
+    userData && dispatch({type: 'SETTINGS_INIT', payload: userData.settings});
+    
     dispatch({type: SET_INITIALIZED, payload: true});
 };

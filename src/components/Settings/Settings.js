@@ -1,14 +1,22 @@
 import React from "react";
 import c from "./Settings.module.css";
 import cn from "classnames";
-
+import { Provider, connect, useSelector, useDispatch } from 'react-redux'
 const Settings = () => {
-   
+    const dispatch = useDispatch();
 
+    function changeTheme() {
+      dispatch({type: 'CHANGE_THEME'})
+    }
+
+    function changeView() {
+      dispatch({type: 'CHANGE_VIEW'})
+    }
+   
     return (
-        <div>
-          <div>Change Theme</div>
-          <div>Change Vizualization</div>
+        <div className={c.SettingsWrapper}>
+          <div onClick={changeTheme}>Change Theme</div>
+          <div onClick={changeView}>Change Vizualization</div>
         </div>
     )
 };

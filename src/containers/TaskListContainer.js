@@ -11,6 +11,8 @@ const TaskListContainer = (props) => {
             <TaskList tasks={props.tasks}
                       removeSelf={props.removeSelf}
                       isDoneToggle={props.isDoneToggle}
+                      theme={props.theme}
+                      view={props.view}
                       />
         </> 
     )
@@ -18,7 +20,8 @@ const TaskListContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.taskListReducer.tasks
+        tasks: state.taskListReducer.tasks,
+        view: state.settingsReducer.view
         //getVizual
     }
 }

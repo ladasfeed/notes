@@ -1,9 +1,9 @@
 import React from "react";
 import c from "./TaskComponent.module.css";
 import cn from "classnames";
-const vizual = 'card';
 
-const TaskComponent = ({task, destroy, doneToggle, editTask}) => {
+
+const TaskComponent = ({task, destroy, doneToggle, editTask, bgColor, view}) => {
     const {title, description, isDone, isImportant, id} = task;
 
     function deleteSelf() {
@@ -12,9 +12,9 @@ const TaskComponent = ({task, destroy, doneToggle, editTask}) => {
             destroy()
         }, 400)
     }
-
+    console.log(view)
     return (
-        <div id={id} style={vizual==='row' ? {width: '100%'} : {width: '250px'}}
+        <div id={id} style={view==='row' ? {width: '100%', ...bgColor} : {width: '250px', ...bgColor}}
              className={cn(c.container, {[c.container_highlighted]: isImportant})}>
             <div className={c.title}>{title}</div>
             <div className={c.description}>

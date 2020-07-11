@@ -1,0 +1,17 @@
+.SettingsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.SettingsWrapper > div {
+    cursor: pointer;
+    transition: .4s;
+    margin-bottom: 10px;
+}
+
+.SettingsWrapper > div:hover {
+    transform: scale(1.2);
+}

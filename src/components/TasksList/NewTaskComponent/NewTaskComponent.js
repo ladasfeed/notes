@@ -3,11 +3,10 @@ import c from "./NewTaskComponent.module.css";
 import { Field, reduxForm, reset } from 'redux-form';
 import { useDispatch } from 'react-redux'
 import { addNewTaskAC } from '../../../redux/actionCreators/actionCreators'
-const vizual = 'card';
 
 
 
-let NewTaskComponent = ({handleSubmit}) => {
+let NewTaskComponent = ({handleSubmit, bgColor, view}) => {
 
     const dispatch = useDispatch() 
 
@@ -18,7 +17,7 @@ let NewTaskComponent = ({handleSubmit}) => {
     }
 
     return (
-        <div className={c.container} style={vizual==='row' ? {width: '100%'} : {width: '250px'}}>
+        <div className={c.container} style={view==='row' ? {width: '100%', ...bgColor} : {width: '250px', ...bgColor}}>
             <form onSubmit={handleSubmit(addNew)}>
                 <div className={c.title}>
                     <Field className={c.titleInput}  placeholder="newTitle" name="newTitle" component="input" type="text" />

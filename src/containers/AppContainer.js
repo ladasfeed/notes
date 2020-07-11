@@ -4,8 +4,10 @@ import App from "../App";
 import {initializeApp} from "../redux/actionCreators/actionCreators";
 
 const mapStateToProps = (state) => {
+   
     return {
-        initialized: state.appReducer.initialized
+        initialized: state.appReducer.initialized,
+        theme: state.settingsReducer.tempTheme
     }
 };
 

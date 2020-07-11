@@ -30,11 +30,11 @@ import {localStorageAPI} from "./api/api";
 // };
 
 
-store.subscribe(() => {
-    if (store.getState().appReducer.initialized){
-         localStorageAPI.pushToStorage(store.getState())
-    }
-});
+// store.subscribe(() => {
+//     if (store.getState().appReducer.initialized){
+//          localStorageAPI.pushToStorage(store.getState())
+//     }
+// });
 
 ReactDOM.render(
     <React.StrictMode>

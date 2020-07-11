@@ -14,10 +14,6 @@ const initialState = {
             id: '123222'
         },
     ],
-    newTitle: '',
-    newDescription: '',
-    newIsDone: false,
-    newIsImportant: false
 }
 
 
