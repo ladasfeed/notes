@@ -12,10 +12,14 @@ const TaskComponent = ({task, destroy, doneToggle, editTask, bgColor, view}) => 
             destroy()
         }, 400)
     }
-    console.log(view)
+
     return (
-        <div id={id} style={view==='row' ? {width: '100%', ...bgColor} : {width: '250px', ...bgColor}}
-             className={cn(c.container, {[c.container_highlighted]: isImportant})}>
+        <div id={id} style={bgColor}
+             className={cn(c.container, {
+                 [c.container_highlighted]: isImportant,
+                 [c.container_cards]: view === "cards",
+                 [c.container_row]: view === "row"
+             })}>
             <div className={c.title}>{title}</div>
             <div className={c.description}>
                 <p>{description}</p>
@@ -23,8 +27,8 @@ const TaskComponent = ({task, destroy, doneToggle, editTask, bgColor, view}) => 
             <div className={c.footer}>
                 <label><input checked={isDone} type="checkbox" onChange={doneToggle}/> Done</label>
                 <div className={c.controls}>
-                    <img src={require('../../../imgs/edit-button.png')} onClick={editTask}></img>
-                    <img src={require('../../../imgs/delete-button.png')} onClick={deleteSelf}></img>
+                    <img src={require('../../../imgs/edit-button.png')} onClick={editTask}/>
+                    <img src={require('../../../imgs/delete-button.png')} onClick={deleteSelf}/>
                 </div>
             </div>
         </div>

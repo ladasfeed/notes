@@ -1,16 +1,15 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import c from "./App.module.css";
 import TaskList from "./containers/TaskListContainer";
 import Settings from './components/Settings/Settings'
 import store from './redux/redux-store/redux-store';
-import { Provider, connect, useSelector } from 'react-redux'
+import {useSelector } from 'react-redux'
 import Preloader from "./components/common/Preloader/Preloader";
 import {localStorageAPI} from './api/api'
 window.store = store
 
 function App(props) {
-  
-  
+
   useEffect(() => {
       props.initializeApp()
   }, []);
@@ -21,7 +20,6 @@ function App(props) {
                                                         ])
 
   useEffect(() => {
-    console.log([taskListReducer, settingsReducer])
     localStorageAPI.pushToStorage(taskListReducer, settingsReducer)
   }, [taskListReducer, settingsReducer]);
 

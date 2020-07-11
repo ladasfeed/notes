@@ -1,7 +1,6 @@
 import React from "react";
 import c from "./Settings.module.css";
-import cn from "classnames";
-import { Provider, connect, useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 const Settings = () => {
     const dispatch = useDispatch();
 
